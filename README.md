@@ -61,7 +61,7 @@ and as we mentioned befor we can use n>=6 points to do the calibration and the c
 
 now we have The decomposition of P into K,R,t is done as by RQ decomposition. It involves calculating the decomposition A = R Q where Q is unitary/orthogonal and R upper triangular.
 
-Verifying the accuracy of the calibration process
+# Verifying the accuracy of the calibration process
 
 For this we will compute the re-projection error, which is a measure of the distance between the 2D points and the 2D points obtained by projecting the 3D points using the computed camera parameters.
 
