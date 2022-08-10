@@ -1,5 +1,5 @@
 # EdgeVision/Innopolis
-# camera-calibration
+# Camera Calibration in real world for precise object positioning
 camera calibration in real world for precise object positioning for surveillance camera
 The goal of camera calibration is to find the intrinsic and extrinsic parameters of a AXIS P1364 Network Camera .
 # Method:
@@ -40,6 +40,40 @@ In the previous part, we have computed the intrinsic parameter assuming that the
 
   -For computing P, the code is in the function “calibrate(x,X)” and is based on the “Direct Linear Transformation (DLT)" The DLT is an important algorithm to            understand and is detailed below.
   
- # Discrete Linear Transform
+ # Discrete Linear Transform (DLT)
 
 The Discrete Linear Transorm(DLT) is simple linear algorithm for estimating the camera projection matrix P from corresponding 3-space and image entities. This computation of the camera matrix is known as resectioning. The simplest such correspondence is that between a 3D point X and its image x under the unknown camera mapping. Given sufficiently many such correspondences the camera matrix may be determined.
+
+
+Let’s assume a number of point correspondences between 3D points and 2D image points are given. The camera matrix is a 3x4 matrix which relates the points by, xi = P.Xi For each correspondence Xi ↔ xi , we get three equations of which two are linearly independent and is described below
+
+1.From a set of n point correspondences, we obtain a 2nx12 matrix A by stacking up the equations of the above form for each correspondence
+
+2.Obtain the SVD of A. The unit singular vector corresponding to the smallest singular value is the solution p. Specifically, if A = UDVT with D diagonal with positive diagonal entries, arranged in descending order down the diagonal, then p is the last column of V
+
+3.Obtain p and write it in matrix form to get the matrix P
+
+![imageedit_5_5151063270](https://user-images.githubusercontent.com/90598253/183870222-2ee4ec79-df8e-4656-b065-d4f172f37a6c.png)
+
+The projection matrix P is computed by solving the set of equations Ap = 0, where p is the vector containing the entries of the matrix P.
+
+and as we mentioned befor we can use n>=6 points to do the calibration and the calculations and we can prove that.
+
+now we have The decomposition of P into K,R,t is done as by RQ decomposition. It involves calculating the decomposition A = R Q where Q is unitary/orthogonal and R upper triangular.
+
+Verifying the accuracy of the calibration process
+
+For this we will compute the re-projection error, which is a measure of the distance between the 2D points and the 2D points obtained by projecting the 3D points using the computed camera parameters.
+
+     References
+
+[1] Huang, Shiyao, et al. "Camera calibration from periodic motion of a pedestrian." Proceedings of the IEEE conference on computer vision and pattern recognition. 2016. 
+
+[2] Kocur, Viktor, and Milan Ftáčnik. "Traffic Camera Calibration via Vehicle Vanishing Point Detection." International Conference on Artificial Neural Networks. Springer, Cham, 2021.
+
+[3] Sochor, Jakub, Roman Juránek, and Adam Herout. "Traffic surveillance camera calibration by 3d model bounding box alignment for accurate vehicle speed measurement." Computer Vision and Image Understanding 161 (2017): 87-98.
+
+[4] R. Hartley and A. Zissermann, Multiview geometry, 2nd edition, Cambridge University Press.
+
+[5] Z. Zhang. A flexible new technique for camera calibration. IEEE Transactions on Pattern Analysis and Machine Intelligence, 22(11):1330-1334, 2000.     
+
