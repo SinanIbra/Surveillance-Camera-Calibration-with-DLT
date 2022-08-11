@@ -3,7 +3,7 @@
 camera calibration in real world for precise object positioning for surveillance camera
 The goal of camera calibration is to find the intrinsic and extrinsic parameters of a AXIS P1364 Network Camera .
 # Used Method:
-Inorder to calibrate this surviellence camera, we take one camera image and take the 3D coordinates of objects that are known with more than six points and use the 3D-2D point correspondences between the 3D points and its 2d camera image to find the camera parameters.
+Inorder to calibrate this surviellence camera, we take the camera images and take the 3D coordinates of objects that are known with more than six points and use the 3D-2D point correspondences between the 3D points and its 2d camera image to find the camera parameters.
 Satellite images might be used to map the coordinates and I'm still working on it.
 # Other Proposed Methods:
 2. using a person with known Hight and make him stand in N different places across the monitored area locations and use this information (his length) to calculate intrinsic matrix .
