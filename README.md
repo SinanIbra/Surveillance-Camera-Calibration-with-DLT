@@ -2,7 +2,17 @@
 # Camera Calibration in real world for precise object positioning
 camera calibration in real world for precise object positioning for surveillance camera
 The goal of camera calibration is to find the intrinsic and extrinsic parameters of a AXIS P1364 Network Camera .
-# Used Method:
+# Used Method Idea and Explanation :
+We as humans when we look at a normal picture (not specifically made to manipulate us), we can estimate the positions or the dimentions of objects easily
+
+![image](https://user-images.githubusercontent.com/90598253/184214781-689caeb0-fdad-4a14-92e9-a28efb874ef5.png)    
+                                   Camera Obscura and World of Illusions, Edinburgh, Scotland                         
+
+or it can be an illousion like this picture above where we can see that this picture!
+(that is the effect of an object of a given size at a given distance will produce the same image as an object of twice the size seen at twice the distance. and we were played by the sizes and angles of the walls and the camera focal length)
+
+but how do we humans do it? we simply compare objects seen in the image to each other and to an object we know and understand the size of and this is the basic Idea of my approuch.
+
 Inorder to calibrate this surviellence camera, we take the camera images and take the 3D coordinates of objects that are known with more than six points and use the 3D-2D point correspondences between the 3D points and its 2d camera image to find the camera parameters.
 Satellite images might be used to map the coordinates and I'm still working on it.
 # Other Proposed Methods:
@@ -12,6 +22,8 @@ Satellite images might be used to map the coordinates and I'm still working on i
      b. vanishing points in a vision system (roads  and intersections are full   of lines that can be used to calculate vanishing points)
 4. most complicated : using 3D Model Bounding Box Alignment
 5. in the light of option [2] we can also include the pose (sort of pose estimation) of the person for more accurate calibration (Hight of the person , and width of the shoulders)
+6. using the satellite images
+explaining the original idea I had (I did search and found nothing on this)
 # Intrinsic parameter
 The calibrating image that we use is from the surroundings of the monitored are as you can see in this picture
 
