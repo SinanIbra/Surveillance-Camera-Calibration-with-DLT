@@ -1,7 +1,7 @@
 # EdgeVision/Innopolis
-# Camera Calibration in real world for precise object positioning
+# Camera Calibration in real world for precise object positioning research
 camera calibration in real world for precise object positioning for surveillance camera
-The goal of camera calibration is to find the intrinsic and extrinsic parameters of a AXIS P1364 Network Camera .
+The goal of this camera calibration research is to find the the best way to calibrate the intrinsic and extrinsic parameters of a AXIS P1364 Network Camera .
 # Used Method Idea and Explanation :
 We as humans when we look at a normal picture (not specifically made to manipulate us), we can estimate the positions or the dimentions of objects easily
 
@@ -22,8 +22,10 @@ Satellite images might be used to map the coordinates and I'm still working on i
      b. vanishing points in a vision system (roads  and intersections are full   of lines that can be used to calculate vanishing points)
 4. most complicated : using 3D Model Bounding Box Alignment
 5. in the light of option [2] we can also include the pose (sort of pose estimation) of the person for more accurate calibration (Hight of the person , and width of the shoulders)
-6. using the satellite images
-explaining the original idea I had (I did search and found nothing on this)
+6. Using monocular depth estimation, since I was working on both depth estimation and camera calibration, there's a possibility that we can use the monocular depth estimation technique for camera calibration, since _mtathimatically speaking_ it's impossible to calculate the distance from the camera or the true shape or volume of the objects, using this technique might enable use after measuring some dimentions of the objects to more precisely calibrate the camera without using any special objects or 5x5 meters chess board! (for surveillance cameras!) 
+![testImg](https://user-images.githubusercontent.com/90598253/184339483-beed3c29-cef3-4926-9cd1-10b777c616d0.png)
+
+
 # Intrinsic parameter
 The calibrating image that we use is from the surroundings of the monitored are as you can see in this picture
 
@@ -90,3 +92,7 @@ For this we will compute the re-projection error, which is a measure of the dist
 
 [5] Z. Zhang. A flexible new technique for camera calibration. IEEE Transactions on Pattern Analysis and Machine Intelligence, 22(11):1330-1334, 2000.     
 
+[6] S. Mahdi H. Miangoleh, Sebastian Dille, Long Mai, Sylvain Paris, and Ya ̆gız Aksoy. Boosting
+monocular depth estimation models to high-resolution via content-adaptive multi-resolution merg-
+ing. 2021.
+  
